@@ -1,0 +1,82 @@
+Fonction get_next_line :
+- Permet de lire la prochaine ligne d'un fichier jusqu'a \n ou \0
+- La lecture se fait toujours ligne par ligne
+- Si nbyte = 3, read avancera de 3 octet
+
+get_next_line.h
+- ajout de la librairie <fcntl.h> qui permet d'utiliser read et open
+- Si BUFFER_SIZE est défini comme 42, la fonction read() lira jusqu'à 42 caractères à chaque appel.
+  Cela signifie que si le fichier contient plus de 42 caractères, plusieurs appels à read()
+  seront nécessaires pour lire tout le fichier, mais cela évite de charger de trop grandes
+  quantités de données d'un seul coup.
+
+Info supplementaire :
+- dans le cas ou il n y a plus rien a lire dans le fichier
+  ou en cas d erreur on renvoie NULL
+- 1.read() tete de lecture read(fd, buf, buffersize)
+- 2.variable statique
+- 3.open() 	int fd = open("a.txt", O_RDONLY);
+
+-------------------------------------------------------------------------------------------
+
+static char	*read_line(int fd, char *line)
+
+- int fd = descripteur de fichier
+- char line = chaine de caractere qui sera lu
+- char buffer = chaine tampon pour stocker temporairement les donnees lue
+- ssize_t nbyte = stocker les octets lue
+- malloc le buffer 
+- verifie si l'allocation echoue
+- tant qu'un \n n'est pas trouver dans line, appel de la fonction read
+  retourne -1 en cas d'erreur
+- nbyte = read(fd, buffer, BUFFER_SIZE), buffer = 42 donc nbyte = 42
+- si nbyte = 0, la fin du fichier est atteinte, on sort de la boucle avec break
+si nbyte = -1, indique qu'une erreur est survenue
+- libere la memoire de line et buffer, retourne null pour indiquer une erreur
+- buffer[nbyte] = '\0' = ajout de '\0' pour en faire une chaine de caracteres valide
+- concatene line et buffer et met a jour line avec le resultat
+- libere la memoir de buffer car plus necessaire
+- retourner la ligne lue et accumuler
+
+exemple test.txt :
+
+bonjour
+hello
+comment
+
+par defaut line est initaliser a null au debut du code
+on avance avec la tete de lecture sur la premiere ligne avec le nbr de nbyte donnee qui sera enregistrer dans buffer
+avec strjoin, on concatene line qui est null a buffer qui contient bonjour
+donc line contient bonjour
+on libere buffer
+avec ce code, la premiere ligne sera lu
+
+-------------------------------------------------------------------------------------------
+
+static char	*next_line(char	*line)
+
+Preparer la deuxieme ligne pour la lecture read
+
+- next_char sera utilisé pour trouver la position du caractère \n dans la chaîne line
+- new_line sera utilisé pour stocker une nouvelle chaîne de caractères qui commence après \n.
+- next_char avance d'un caractere pour pointer après le \n
+- new_line = ft_strdup(next_char) va copier ce qui se trouve après le \n
+- *next_char = '\0' va couper la chaine et y insert un caractere nul
+- la fonction retourne new_line, la prochaine ligne après \n
+
+-------------------------------------------------------------------------------------------
+
+char	*get_next_line(int fd)
+
+- fd = fichier.txt a lire
+- variable static est utilisé pour garder en memoire ce qu'il y a dedans, par exemple
+  si la variable contient 42 octets, elle va les conserver au prochaine appel
+- line = read_line(fd, new_line) va lire et concatener la premiere ligne jusqu au \n
+- new_line = next_line(line) va préparer la ligne suivante si le fichier en contient
+
+-------------------------------------------------------------------------------------------
+
+Bonus :
+
+- marco FD_MAX definie le nombre de fichier qui sont ouvert simultanément
+- get next line va lire ligne par ligne chaque descripteur de fichier
