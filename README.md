@@ -20,12 +20,12 @@ Chaque appel à get_next_line retourne la ligne suivante lue depuis le fichier, 
 - Utilise un buffer temporaire (BUFFER_SIZE)
 - Concatène les lectures successives via ft_strjoin
 - Gère les erreurs et libérations mémoire en cas de read() == -1
-<br>
+
 `static char *next_line(char	*line)`
 - Extrait la ligne suivante à partir du contenu déjà lu
 - Localise le \n et duplique ce qui le suit pour le prochain appel
 - Coupe proprement la chaîne pour isoler la ligne à retourner
-<br>
+
 `char *get_next_line(int fd)`
 - Gère un buffer statique (persistant) pour chaque appel
 - Appelle read_line() pour lire une ligne complète
