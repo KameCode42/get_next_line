@@ -30,8 +30,8 @@ Chaque appel à get_next_line retourne la ligne suivante lue depuis le fichier, 
 # Bonus :
 - Le comportement est extensible pour plusieurs fichiers simultanés via FD_MAX
 
-# Exemple d'affichage :  <br>
-Exemple (contenu de test.txt) :
+# Exemple d'affichage :
+Exemple (contenu de test.txt) : <br>
 bonjour
 hello
 comment
