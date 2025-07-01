@@ -30,14 +30,13 @@ Chaque appel à get_next_line retourne la ligne suivante lue depuis le fichier, 
 # Bonus :
 - Le comportement est extensible pour plusieurs fichiers simultanés via FD_MAX
 
-# Exemple d'affichage :
+# Exemple d'affichage :  <br>
 Exemple (contenu de test.txt) :
 bonjour
 hello
 comment
-<br>
-Appels successifs à get_next_line(fd) va retourner :
+
+Appels successifs à get_next_line(fd) va retourner :  <br>
 "bonjour\n"
 "hello\n"
 "comment"
-<br>
