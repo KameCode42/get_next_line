@@ -32,11 +32,11 @@ Chaque appel à get_next_line retourne la ligne suivante lue depuis le fichier, 
 
 # Exemple d'affichage :
 Exemple (contenu de test.txt) : <br>
-bonjour
-hello
-comment
+bonjour <br>
+hello <br>
+comment <br>
 
 Appels successifs à get_next_line(fd) va retourner :  <br>
-"bonjour\n"
-"hello\n"
-"comment"
+"bonjour\n" <br>
+"hello\n" <br>
+"comment" <br>
