@@ -1,4 +1,4 @@
-![get_next_line](https://github.com/user-attachments/assets/050bb54f-d66f-448b-a118-43f0fe008005)
+<img width="1024" height="1024" alt="Image" src="https://github.com/user-attachments/assets/e0f89bd3-69df-4843-aae2-2e6f2a081760" />
 
 # Sujet :
 Le projet get_next_line a pour but d'écrire une fonction capable de lire ligne par ligne à partir d’un descripteur de fichier donné. <br>
