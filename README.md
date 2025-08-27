@@ -1,4 +1,4 @@
-<img width="720" height="720" alt="Image" src="https://github.com/user-attachments/assets/e0f89bd3-69df-4843-aae2-2e6f2a081760" />
+<img width="720" height="450" alt="Image" src="https://github.com/user-attachments/assets/e0f89bd3-69df-4843-aae2-2e6f2a081760" />
 
 # Sujet :
 Le projet get_next_line a pour but d'écrire une fonction capable de lire ligne par ligne à partir d’un descripteur de fichier donné. <br>
